@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Semáforo UX de pantalla completa – Concurso Proyectos ISC 2026</title>
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+  <!-- Estilos del sitio -->
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/theme_itjmmpyh.css">
+</head>
+<body>
+  <main class="app">
+    <!-- HEADER -->
+    <section class="panel header">
+      <div class="brand">
+        <div class="brand-text">
+          <h1>Concurso de Proyectos de Innovación</h1>
+          <p class="subtitle">
+            Semáforo con tres bloques de 5 minutos: presentación, demostración del prototipo y preguntas.
+          </p>
+        </div>
+        <div class="logo" aria-label="Logo del semáforo">
+          <img src="assets/img/semaforo/logo_semaforo.png" alt="Logo semáforo" />
+        </div>
+      </div>
+      <div class="controls">
+        <button class="btn btn-primary" id="startBtn">Iniciar</button>
+        <button class="btn btn-secondary" id="pauseBtn">Pausar</button>
+        <button class="btn btn-next" id="nextBtn">Siguiente sección</button>
+        <button class="btn btn-danger" id="resetBtn">Reiniciar</button>
+      </div>
+    </section>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <section class="panel main">
+      <section class="status">
+        <div>
+          <div class="badge" id="statusBadge">
+            <span class="badge-dot"></span>
+            <span id="statusText">Listo para iniciar</span>
+          </div>
+          <div class="phase-title" id="phaseTitle" style="margin-top: 10px;">Presentación</div>
+          <p class="muted" id="phaseDescription">
+            Primer bloque de 5 minutos para exponer la propuesta.
+          </p>
+        </div>
+
+        <div class="hero-time" aria-live="polite">
+          <span class="muted" id="timeLabel">Tiempo del bloque actual</span>
+          <strong id="timeDisplay">05:00</strong>
+          <span class="muted" id="progressMeta">Tiempo total del evento: 15:00.</span>
+          <div class="progress">
+            <div class="bar" id="progressBar"></div>
+          </div>
+        </div>
+
+        <div class="stage-message" id="stageMessage">
+          Pulsa iniciar para activar el flujo completo de evaluación.
+        </div>
+
+        <div class="alert-banner" id="alertBanner" aria-live="assertive">
+          <span style="font-size: 1.3rem;">🔔</span>
+          <span id="alertText">Las alertas sonoras se activan después de iniciar la sesión.</span>
+        </div>
+      </section>
+
+      <!-- TARJETAS DE FASES -->
+      <section class="timeline" aria-label="Bloques del evento">
+        <article class="phase-card active" id="card-0" style="color: var(--green);">
+          <div class="phase-card-header">
+            <span>Bloque 1 · Presentación</span>
+            <span>5 min</span>
+          </div>
+          <h2>Verde → Amarillo → Rojo</h2>
+          <p class="muted">Inicio del evento. Enfócate en el mensaje principal.</p>
+          <div class="microbar"><span id="mini-0"></span></div>
+        </article>
+
+        <article class="phase-card" id="card-1" style="color: var(--yellow);">
+          <div class="phase-card-header">
+            <span>Bloque 2 · Demostración</span>
+            <span>5 min</span>
+          </div>
+          <h2>Se mantiene el mismo patrón</h2>
+          <p class="muted">Muestra el prototipo funcionando, cerrando ideas al final.</p>
+          <div class="microbar"><span id="mini-1"></span></div>
+        </article>
+
+        <article class="phase-card" id="card-2" style="color: var(--red);">
+          <div class="phase-card-header">
+            <span>Bloque 3 · Preguntas</span>
+            <span>5 min</span>
+          </div>
+          <h2>Cierre con preguntas</h2>
+          <p class="muted">Usa el verde y amarillo para escuchar y aclarar todo.</p>
+          <div class="microbar"><span id="mini-2"></span></div>
+        </article>
+
+        <section class="final-screen" id="finalScreen" aria-live="polite">
+          <h2 style="margin: 0 0 10px; font-size: 1.4rem;">Evaluación finalizada</h2>
+          <p class="muted" style="margin: 0;">Los tres bloques concluyeron correctamente.</p>
+        </section>
+      </section>
+    </section>
+
+    <!-- FOOTER CON PATROCINADORES -->
+    <footer class="app-footer" aria-label="Patrocinadores y aliados">
+      <img
+        src="assets/img/patrocinadores/app-footer-semaforo.png"
+        alt="Logos de patrocinadores y aliados del Concurso de Proyectos de Innovación"
+        class="footer-logos"
+      />
+    </footer>
+  </main>
+
+  <!-- Lógica del semáforo y scripts del sitio -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/tracking_analytics.js"></script>
+</body>
+</html>

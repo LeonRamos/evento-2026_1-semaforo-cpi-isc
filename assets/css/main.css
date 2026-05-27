@@ -1,0 +1,359 @@
+:root {
+  --text: #0f172a;
+  --muted: #6b7280;
+  --primary: #2563eb;
+  --danger: #b91c1c;
+  --next: #0f766e;
+  --border-soft: rgba(15, 23, 42, .08);
+  --shadow: 0 18px 48px rgba(15, 23, 42, .14);
+
+  --green: #16a34a;
+  --green-soft: #bbf7d0;
+  --yellow: #f59e0b;
+  --yellow-soft: #fef9c3;
+  --red: #dc2626;
+  --red-soft: #fee2e2;
+}
+
+/* Reset básico / tipografía */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Manrope', system-ui, sans-serif;
+  color: var(--text);
+  display: grid;
+  place-items: center;
+  transition: background-color .6s ease, background-image .6s ease;
+  padding: 16px;
+  background-color: #f3f4f6;
+}
+
+button { font: inherit; }
+
+/* Layout principal */
+
+.app {
+  width: min(980px, 100%);
+  display: grid;
+  gap: 16px;
+}
+
+.panel {
+  background: rgba(255, 255, 255, .96);
+  border-radius: 24px;
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  color: var(--text);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Brand: texto izquierda, logo derecha */
+
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  max-width: 72%; /* deja espacio visual para el logo */
+}
+
+.logo {
+  width: 88px;
+  height: 88px;
+  border-radius: 22px;
+  display: grid;
+  place-items: center;
+  background: #e5edff;
+  border: 1px solid rgba(37,99,235,.35);
+  flex-shrink: 0;
+}
+
+.logo img {
+  height: 4.2rem;
+  width: auto;
+  display: block;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.6rem, 1.1rem + 1.4vw, 2.2rem);
+  line-height: 1.05;
+}
+
+.subtitle {
+  margin: 6px 0 0;
+  color: var(--muted);
+  max-width: 62ch;
+}
+
+/* Controles */
+
+.controls {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  min-height: 46px;
+  min-width: 136px;
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 18px;
+  font-weight: 800;
+  color: #fff;
+  cursor: pointer;
+  transition: transform .16s ease, background .16s ease, box-shadow .16s ease;
+  box-shadow: 0 10px 25px rgba(15,23,42,.12);
+}
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(1px); box-shadow: none; }
+
+.btn-primary { background: var(--primary); }
+.btn-secondary { background: #4b5563; }
+.btn-danger   { background: var(--danger); }
+.btn-next     { background: var(--next); }
+
+/* Layout de contenido */
+
+.main {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 16px;
+}
+
+.status { display: grid; gap: 16px; }
+
+/* Estado y timer */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  min-height: 44px;
+  border-radius: 999px;
+  border: 1px solid var(--border-soft);
+  background: #eef2ff;
+  font-weight: 800;
+  width: fit-content;
+}
+
+.badge-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.phase-title {
+  font-size: clamp(1.25rem, 1.1rem + .6vw, 1.7rem);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.muted { color: var(--muted); }
+
+.hero-time {
+  display: grid;
+  gap: 6px;
+  align-items: flex-end;
+}
+
+.hero-time strong {
+  font-size: clamp(3rem, 2.2rem + 3vw, 4.4rem);
+  line-height: .9;
+  letter-spacing: -.06em;
+  font-variant-numeric: tabular-nums;
+}
+
+.stage-message,
+.alert-banner {
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: #f9fafb;
+  border: 1px solid var(--border-soft);
+}
+
+.alert-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.alert-banner.warn {
+  background: #fefce8;
+  border-color: #facc15;
+  color: #92400e;
+}
+
+.alert-banner.danger {
+  background: #fef2f2;
+  border-color: #ef4444;
+  color: #b91c1c;
+}
+
+.alert-banner.info {
+  background: #ecfeff;
+  border-color: #14b8a6;
+  color: #0f766e;
+}
+
+.progress {
+  margin-top: 6px;
+  height: 14px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: #e5e7eb;
+  border: 1px solid rgba(15,23,42,.06);
+}
+
+.bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #22c55e, #facc15, #ef4444);
+  transition: width .25s ease;
+}
+
+/* Tarjetas de fases */
+
+.timeline {
+  display: grid;
+  gap: 10px;
+}
+
+.phase-card {
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: #f9fafb;
+  border: 1px solid var(--border-soft);
+  display: grid;
+  gap: 6px;
+}
+
+.phase-card.active {
+  background: #eef2ff;
+  border-color: #2563eb;
+  box-shadow: inset 0 0 0 1px rgba(37,99,235,.16);
+}
+
+.phase-card.done { opacity: .7; }
+
+.phase-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: .92rem;
+  color: var(--muted);
+}
+
+.phase-card h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.microbar {
+  height: 6px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: #e5e7eb;
+}
+
+.microbar > span {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: currentColor;
+  transition: width .25s ease;
+}
+
+/* Pantalla final */
+
+.final-screen {
+  display: none;
+  text-align: center;
+  padding: 20px 18px;
+  border-radius: 18px;
+  background: #ecfdf3;
+  border: 1px solid #22c55e;
+  margin-top: 10px;
+}
+
+.final-screen.show { display: block; }
+
+/* FOOTER de patrocinadores */
+
+.app-footer {
+  margin-top: 8px;
+  padding: 10px 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-logos {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 10px rgba(15, 23, 42, .18));
+}
+
+/* Responsive */
+
+@media (max-width: 840px) {
+  .main { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  body { padding: 8px; }
+  .panel { border-radius: 20px; }
+  .controls { width: 100%; }
+  .btn { flex: 1 1 100%; }
+
+  .brand {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .brand-text {
+    max-width: 100%;
+  }
+
+  .logo {
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+    margin-top: 8px;
+  }
+
+  .logo img {
+    height: 3.4rem;
+  }
+
+  .app-footer {
+    padding: 8px;
+  }
+
+  .footer-logos {
+    filter: none; /* menos sombra en móvil */
+  }
+}
